@@ -21,13 +21,13 @@ cargo-deny = "0.20.2"
 bats = "1.14.0"
 shfmt = "3.14.1"
 "github:jdx/packslip" = "1.11.1"
-rtk = { version = "1.0.1", postinstall = "rtk init -g --claude && rtk init -g --codex" }
+rtk = { version = "1.0.1", postinstall = "rtk init -g --claude-md && rtk init -g --codex" }
 rust = { version = "1.99.1", components = "rust-analyzer,rust-src", mr_boxington = true }
 mr-boxington = { version = "1.27.0", workflow = "release.yml@refs/heads/main" }
 cargo-binstall = "1.26.1"
 "cargo:cargo-deb" = "3.8.0"
 "cargo:cargo-generate-rpm" = "0.21.1"
-"github:dmtrKovalenko/fff.nvim"= { version = "0.11.0", exe = "fff-mcp", postinstall = """
+"github:dmtrKovalenko/fff.nvim"= { version = "0.11.0", postinstall = """
 command -v claude >/dev/null && claude mcp remove fff -s user 2>/dev/null; command -v claude >/dev/null && claude mcp add -s user fff -- $MISE_TOOL_INSTALL_PATH/fff-mcp --log-level warn || true; command -v codex >/dev/null && codex mcp add fff -- $MISE_TOOL_INSTALL_PATH/fff-mcp --log-level warn || true
 """, platforms = { linux-x64 = { asset_pattern = "fff-mcp-x86_64-unknown-linux-musl" }, linux-arm64 = { asset_pattern = "fff-mcp-aarch64-unknown-linux-musl" }, macos-x64 = { asset_pattern = "fff-mcp-x86_64-apple-darwin" }, macos-arm64 = { asset_pattern = "fff-mcp-aarch64-apple-darwin" } } }
 

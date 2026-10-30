@@ -61,6 +61,7 @@ impl Hotkey {
 fn normalize_key(token: &str, raw: &str) -> Result<String> {
     let lower = token.to_ascii_lowercase();
     let key = match lower.as_str() {
+        "alt" => "Alt".to_string(),
         "grave" | "backtick" | "`" => "`".to_string(),
         "space" => "Space".to_string(),
         "tab" => "Tab".to_string(),
